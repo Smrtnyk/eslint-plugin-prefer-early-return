@@ -113,6 +113,15 @@ test('prefer-early-return rule', () => {
                     }
                 }
             `,
+            output: `
+                function foo(bar) {
+                    if (!bar) {
+                        return;
+                    }
+                    doSomething();
+                    doSomethingElse();
+                }
+            `,
             errors: [
                 {
                     messageId: 'preferEarlyReturn',
@@ -127,6 +136,15 @@ test('prefer-early-return rule', () => {
                         doSomething();
                         doSomethingElse();
                     }
+                }
+            `,
+            output: `
+                const foo = function(bar) {
+                    if (!bar) {
+                        return;
+                    }
+                    doSomething();
+                    doSomethingElse();
                 }
             `,
             errors: [
@@ -145,6 +163,15 @@ test('prefer-early-return rule', () => {
                     }
                 }
             `,
+            output: `
+                const foo = (bar) => {
+                    if (!bar) {
+                        return;
+                    }
+                    doSomething();
+                    doSomethingElse();
+                }
+            `,
             errors: [
                 {
                     messageId: 'preferEarlyReturn',
@@ -160,6 +187,14 @@ test('prefer-early-return rule', () => {
                     }
                 }
             `,
+            output: `
+                function foo(bar) {
+                    if (!bar) {
+                        return;
+                    }
+                    doSomething();
+                }
+            `,
             options: [{ maximumStatements: 0 }],
             errors: [
                 {
@@ -172,6 +207,14 @@ test('prefer-early-return rule', () => {
             code: `
                 function foo(bar) {
                     if (bar) doSomething();
+                }
+            `,
+            output: `
+                function foo(bar) {
+                    if (!bar) {
+                        return;
+                    }
+                    doSomething();
                 }
             `,
             options: [{ maximumStatements: 0 }],
@@ -192,6 +235,16 @@ test('prefer-early-return rule', () => {
                     }
                 }
             `,
+            output: `
+                function foo(bar) {
+                    if (!bar) {
+                        return;
+                    }
+                    doSomething();
+                    doSomethingElse();
+                    doAnotherThing();
+                }
+            `,
             options: [{ maximumStatements: 1 }],
             errors: [
                 {
@@ -208,6 +261,16 @@ test('prefer-early-return rule', () => {
                         doSomethingElse();
                         doAnotherThing();
                     }
+                }
+            `,
+            output: `
+                function foo(bar) {
+                    if (!bar) {
+                        return;
+                    }
+                    doSomething();
+                    doSomethingElse();
+                    doAnotherThing();
                 }
             `,
             options: [{ maximumStatements: 2 }],
@@ -229,6 +292,17 @@ test('prefer-early-return rule', () => {
                     }
                 }
             `,
+            output: `
+                function outer() {
+                    function inner(bar) {
+                        if (!bar) {
+                            return;
+                        }
+                        doSomething();
+                        doSomethingElse();
+                    }
+                }
+            `,
             errors: [
                 {
                     messageId: 'preferEarlyReturn',
@@ -247,6 +321,17 @@ test('prefer-early-return rule', () => {
                     }
                 }
             `,
+            output: `
+                class MyClass {
+                    myMethod(bar) {
+                        if (!bar) {
+                            return;
+                        }
+                        doSomething();
+                        doSomethingElse();
+                    }
+                }
+            `,
             errors: [
                 {
                     messageId: 'preferEarlyReturn',
@@ -261,6 +346,15 @@ test('prefer-early-return rule', () => {
                         await doSomething();
                         await doSomethingElse();
                     }
+                }
+            `,
+            output: `
+                async function foo(bar) {
+                    if (!bar) {
+                        return;
+                    }
+                    await doSomething();
+                    await doSomethingElse();
                 }
             `,
             errors: [

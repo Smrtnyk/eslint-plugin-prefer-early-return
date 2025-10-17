@@ -1,26 +1,45 @@
 {
-  "name": "@regru/eslint-plugin-prefer-early-return",
+  "name": "@smrtnyk/eslint-plugin-prefer-early-return",
   "version": "1.0.0",
-  "description": "Copy-paste from `eslint-plugin-shopify` from shopify team without unwanted dependensies and restrictions",
+  "description": "ESLint plugin that enforces early returns over full-body conditional wrapping. Compatible with ESLint 9+ flat config.",
+  "type": "module",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "files": [
+    "index.js",
+    "rules/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test tests/**/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   },
   "author": "Makarychev Andrey <shiftmailbox@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/regru/eslint-plugin-prefer-early-return.git"
+    "url": "git+https://github.com/Smrtnyk/eslint-plugin-prefer-early-return.git"
   },
   "keywords": [
     "eslint",
-    "plugin"
+    "eslint-plugin",
+    "eslintplugin",
+    "early-return",
+    "prefer-early-return",
+    "code-style",
+    "flat-config",
+    "eslint9"
   ],
   "bugs": {
-    "url": "https://github.com/regru/eslint-plugin-prefer-early-return/issues"
+    "url": "https://github.com/Smrtnyk/eslint-plugin-prefer-early-return/issues"
   },
-  "homepage": "https://github.com/regru/eslint-plugin-prefer-early-return#readme"
+  "homepage": "https://github.com/Smrtnyk/eslint-plugin-prefer-early-return#readme"
 }

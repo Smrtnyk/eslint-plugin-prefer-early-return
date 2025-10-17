@@ -1,0 +1,10 @@
+tests/
+node_modules/
+.git/
+.gitignore
+.npmignore
+package-lock.json
+.idea/
+.vscode/
+.claude/
+*.log

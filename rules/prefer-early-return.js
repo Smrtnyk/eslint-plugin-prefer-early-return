@@ -1,14 +1,18 @@
 const defaultMaximumStatements = 1;
 
-module.exports = {
+export default {
     meta: {
+        type: 'suggestion',
         docs: {
             description:
                 'Prefer early returns over full-body conditional wrapping in function declarations.',
             category: 'Best Practices',
             recommended: false,
             uri:
-                'https://github.com/Shopify/eslint-plugin-shopify/blob/master/docs/rules/prefer-early-return.md',
+                'https://github.com/regru/eslint-plugin-prefer-early-return/blob/master/docs/rules/prefer-early-return.md',
+        },
+        messages: {
+            preferEarlyReturn: 'Prefer an early return to a conditionally-wrapped function body',
         },
         schema: [
             {
@@ -61,10 +65,10 @@ module.exports = {
             const body = functionNode.body;
 
             if (hasSimplifiableConditionalBody(body)) {
-                context.report(
-                    body,
-                    'Prefer an early return to a conditionally-wrapped function body',
-                );
+                context.report({
+                    node: body,
+                    messageId: 'preferEarlyReturn',
+                });
             }
         }
 

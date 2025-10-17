@@ -1,5 +1,7 @@
-module.exports = {
+import preferEarlyReturn from './rules/prefer-early-return.js';
+
+export default {
     rules: {
-        'prefer-early-return': require('./rules/prefer-early-return'),
+        'prefer-early-return': preferEarlyReturn,
     },
 };

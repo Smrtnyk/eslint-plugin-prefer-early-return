@@ -1,5 +1,10 @@
 # ESLint Plugin Prefer Early Return
 
+[![npm version](https://badge.fury.io/js/@smrtnyk%2Feslint-plugin-prefer-early-return.svg)](https://www.npmjs.com/package/@smrtnyk/eslint-plugin-prefer-early-return)
+[![npm downloads](https://img.shields.io/npm/dm/@smrtnyk/eslint-plugin-prefer-early-return.svg)](https://www.npmjs.com/package/@smrtnyk/eslint-plugin-prefer-early-return)
+[![CI](https://github.com/Smrtnyk/eslint-plugin-prefer-early-return/actions/workflows/ci.yml/badge.svg)](https://github.com/Smrtnyk/eslint-plugin-prefer-early-return/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This is a maintained fork of [@regru/eslint-plugin-prefer-early-return](https://github.com/regru/eslint-plugin-prefer-early-return), which extracted the prefer-early-return rule from Shopify's `eslint-plugin-shopify`.
 
 The original regru fork is no longer maintained, lacks unit tests, doesn't support auto-fix, and is not compatible with ESLint 9's flat config format.

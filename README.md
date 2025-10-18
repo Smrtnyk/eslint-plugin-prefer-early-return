@@ -1,12 +1,19 @@
 # ESLint Plugin Prefer Early Return
 
-This is a fork of the prefer-early-return rule from `eslint-plugin-shopify`. The original plugin is no longer actively maintained and is not compatible with ESLint 9's flat config format. This fork provides:
+This is a maintained fork of [@regru/eslint-plugin-prefer-early-return](https://github.com/regru/eslint-plugin-prefer-early-return), which extracted the prefer-early-return rule from Shopify's `eslint-plugin-shopify`.
 
-- ESLint 9+ flat config support
-- ESM module format
-- Auto-fix capability
-- No unwanted dependencies
-- Modern Node.js (22+) compatibility
+The original regru fork is no longer maintained, lacks unit tests, doesn't support auto-fix, and is not compatible with ESLint 9's flat config format.
+
+## What's Different
+
+This fork adds:
+
+- **Auto-fix capability** with smart condition inversions
+- **Comprehensive unit tests**
+- **ESLint 9+ flat config support**
+- **ESM module format**
+- **No unwanted dependencies**
+- **Modern Node.js (22+) compatibility**
 
 ## Installation
 

@@ -1,6 +1,7 @@
 tests/
 node_modules/
 .git/
+.github/
 .gitignore
 .npmignore
 package-lock.json

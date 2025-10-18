@@ -76,3 +76,9 @@ function processUser(user) {
 ```
 
 For more details, see [prefer-early-return](docs/rules/prefer-early-return.md)
+
+## Development
+
+```bash
+npm test
+```

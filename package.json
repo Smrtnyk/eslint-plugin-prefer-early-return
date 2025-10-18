@@ -4,8 +4,10 @@
   "description": "ESLint plugin that enforces early returns over full-body conditional wrapping. Compatible with ESLint 9+ flat config.",
   "type": "module",
   "main": "index.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
+    "index.d.ts",
     "rules/",
     "README.md",
     "LICENSE"
@@ -14,7 +16,9 @@
     "test": "node --test tests/**/*.js"
   },
   "devDependencies": {
-    "eslint": "^9.0.0"
+    "@types/eslint": "^9.6.1",
+    "eslint": "^9.0.0",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0"

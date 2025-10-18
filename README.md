@@ -10,6 +10,7 @@ This fork adds:
 
 - **Auto-fix capability** with smart condition inversions
 - **Comprehensive unit tests**
+- **TypeScript type definitions** for better IDE support
 - **ESLint 9+ flat config support**
 - **ESM module format**
 - **No unwanted dependencies**

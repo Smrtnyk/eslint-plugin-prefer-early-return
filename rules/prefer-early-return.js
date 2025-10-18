@@ -63,19 +63,58 @@ export default {
         }
 
         function invertCondition(test, sourceCode) {
-            const testText = sourceCode.getText(test);
-
             // If the test is already negated with !, remove the negation
             if (test.type === 'UnaryExpression' && test.operator === '!') {
                 return sourceCode.getText(test.argument);
             }
 
-            // Otherwise, wrap in negation
-            // Add parentheses if the test is a complex expression
-            if (test.type === 'BinaryExpression' || test.type === 'LogicalExpression') {
-                return `!(${testText})`;
+            // Handle binary expressions with operator inversion
+            if (test.type === 'BinaryExpression') {
+                const left = sourceCode.getText(test.left);
+                const right = sourceCode.getText(test.right);
+                const operator = test.operator;
+
+                // Map of operators to their inverses
+                const invertedOperators = {
+                    '===': '!==',
+                    '!==': '===',
+                    '==': '!=',
+                    '!=': '==',
+                    '>': '<=',
+                    '>=': '<',
+                    '<': '>=',
+                    '<=': '>',
+                };
+
+                if (invertedOperators[operator]) {
+                    return `${left} ${invertedOperators[operator]} ${right}`;
+                }
+
+                // For operators we can't invert directly, wrap in negation
+                return `!(${sourceCode.getText(test)})`;
             }
 
+            // Handle logical expressions (&&, ||) with De Morgan's law
+            if (test.type === 'LogicalExpression') {
+                const left = test.left;
+                const right = test.right;
+                const operator = test.operator;
+
+                if (operator === '&&') {
+                    // !(a && b) becomes !a || !b
+                    const invertedLeft = invertCondition(left, sourceCode);
+                    const invertedRight = invertCondition(right, sourceCode);
+                    return `${invertedLeft} || ${invertedRight}`;
+                } else if (operator === '||') {
+                    // !(a || b) becomes !a && !b
+                    const invertedLeft = invertCondition(left, sourceCode);
+                    const invertedRight = invertCondition(right, sourceCode);
+                    return `${invertedLeft} && ${invertedRight}`;
+                }
+            }
+
+            // For other expressions, just add negation
+            const testText = sourceCode.getText(test);
             return `!${testText}`;
         }
 

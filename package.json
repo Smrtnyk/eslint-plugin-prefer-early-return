@@ -1,6 +1,6 @@
 {
   "name": "@smrtnyk/eslint-plugin-prefer-early-return",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "ESLint plugin that enforces early returns over full-body conditional wrapping. Compatible with ESLint 9+ flat config.",
   "type": "module",
   "main": "index.js",
@@ -22,6 +22,11 @@
   },
   "peerDependencies": {
     "eslint": ">=9.0.0"
+  },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">=22.0.0"
